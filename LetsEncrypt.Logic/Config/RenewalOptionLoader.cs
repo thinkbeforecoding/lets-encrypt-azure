@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace LetsEncrypt.Logic.Config
 {
-    public class RenewalOptionParser : IRenewalOptionParser
+    public class RenewalOptionLoader : IRenewalOptionLoader
     {
         public const string FileNameForPermissionCheck = "permission-check.blob";
 
@@ -29,7 +29,7 @@ namespace LetsEncrypt.Logic.Config
         private readonly ILoggerFactory _loggerFactory;
         private readonly IKeyVaultFactory _keyVaultFactory;
 
-        public RenewalOptionParser(
+        public RenewalOptionLoader(
             IAzureHelper azureHelper,
             IKeyVaultFactory keyVaultFactory,
             IStorageFactory storageFactory,
@@ -43,7 +43,7 @@ namespace LetsEncrypt.Logic.Config
             _azureAppServiceClient = azureAppServiceClient;
             _azureCdnClient = azureCdnClient;
             _loggerFactory = loggerFactory;
-            _logger = loggerFactory.CreateLogger<RenewalOptionParser>();
+            _logger = loggerFactory.CreateLogger<RenewalOptionLoader>();
         }
 
         public async Task<IChallengeResponder> ParseChallengeResponderAsync(CertificateRenewalOptions cfg, CancellationToken cancellationToken)

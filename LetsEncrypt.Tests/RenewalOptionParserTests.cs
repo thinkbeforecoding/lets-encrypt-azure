@@ -25,7 +25,7 @@ namespace LetsEncrypt.Tests
             var factory = new Mock<IStorageFactory>();
             var storage = new Mock<IStorageProvider>();
             // check is used by parser to verify MSI access
-            storage.Setup(x => x.ExistsAsync(RenewalOptionParser.FileNameForPermissionCheck, It.IsAny<CancellationToken>()))
+            storage.Setup(x => x.ExistsAsync(RenewalOptionLoader.FileNameForPermissionCheck, It.IsAny<CancellationToken>()))
                 .Returns(Task.FromResult(false));
             factory.Setup(x => x.FromMsiAsync("example", new StorageProperties().ContainerName, It.IsAny<CancellationToken>()))
                 .Returns(Task.FromResult(storage.Object));
@@ -35,7 +35,7 @@ namespace LetsEncrypt.Tests
             kvFactory.Setup(x => x.CreateCertificateClient("example"))
                 .Returns(client.Object);
             var log = new Mock<ILoggerFactory>();
-            IRenewalOptionParser parser = new RenewalOptionParser(
+            IRenewalOptionLoader parser = new RenewalOptionLoader(
                 az.Object,
                 kvFactory.Object,
                 factory.Object,
@@ -54,7 +54,7 @@ namespace LetsEncrypt.Tests
             var factory = new Mock<IStorageFactory>();
             var storage = new Mock<IStorageProvider>();
             // check is used by parser to verify MSI access
-            storage.Setup(x => x.ExistsAsync(RenewalOptionParser.FileNameForPermissionCheck, It.IsAny<CancellationToken>()))
+            storage.Setup(x => x.ExistsAsync(RenewalOptionLoader.FileNameForPermissionCheck, It.IsAny<CancellationToken>()))
                 .Throws(new RequestFailedException((int)HttpStatusCode.Forbidden, "Access denied, due to missing MSI permissions"));
 
             factory.Setup(x => x.FromMsiAsync("example", new StorageProperties().ContainerName, It.IsAny<CancellationToken>()))
@@ -74,7 +74,7 @@ namespace LetsEncrypt.Tests
             kvFactory.Setup(x => x.CreateCertificateClient("example"))
                 .Returns(client.Object);
 
-            IRenewalOptionParser parser = new RenewalOptionParser(
+            IRenewalOptionLoader parser = new RenewalOptionLoader(
                 az.Object,
                 kvFactory.Object,
                 factory.Object,
@@ -95,7 +95,7 @@ namespace LetsEncrypt.Tests
             var factory = new Mock<IStorageFactory>();
             var storage = new Mock<IStorageProvider>();
             // check is used by parser to verify MSI access
-            storage.Setup(x => x.ExistsAsync(RenewalOptionParser.FileNameForPermissionCheck, It.IsAny<CancellationToken>()))
+            storage.Setup(x => x.ExistsAsync(RenewalOptionLoader.FileNameForPermissionCheck, It.IsAny<CancellationToken>()))
                 .Throws(new RequestFailedException((int)HttpStatusCode.Forbidden, "Access denied, due to missing MSI permissions"));
 
             factory.Setup(x => x.FromMsiAsync("example", new StorageProperties().ContainerName, It.IsAny<CancellationToken>()))
@@ -122,7 +122,7 @@ namespace LetsEncrypt.Tests
             // fallback
             factory.Setup(x => x.FromConnectionString(connectionString, new StorageProperties().ContainerName))
                 .Returns(storage.Object);
-            IRenewalOptionParser parser = new RenewalOptionParser(
+            IRenewalOptionLoader parser = new RenewalOptionLoader(
                 az.Object,
                 kvFactory.Object,
                 factory.Object,
@@ -144,7 +144,7 @@ namespace LetsEncrypt.Tests
             var factory = new Mock<IStorageFactory>();
             var storage = new Mock<IStorageProvider>();
             // check is used by parser to verify MSI access
-            storage.Setup(x => x.ExistsAsync(RenewalOptionParser.FileNameForPermissionCheck, It.IsAny<CancellationToken>()))
+            storage.Setup(x => x.ExistsAsync(RenewalOptionLoader.FileNameForPermissionCheck, It.IsAny<CancellationToken>()))
                 .Throws(new RequestFailedException((int)HttpStatusCode.Forbidden, "Access denied, due to missing MSI permissions"));
             // fallback is connectionString
             const string connectionString = "this will grant me access";
@@ -165,7 +165,7 @@ namespace LetsEncrypt.Tests
                 .Returns(secretClient.Object);
             kvFactory.Setup(x => x.CreateCertificateClient("example"))
                 .Returns(client.Object);
-            IRenewalOptionParser parser = new RenewalOptionParser(
+            IRenewalOptionLoader parser = new RenewalOptionLoader(
                 az.Object,
                 kvFactory.Object,
                 factory.Object,
@@ -192,7 +192,7 @@ namespace LetsEncrypt.Tests
             var client = new Mock<CertificateClient>();
             kvFactory.Setup(x => x.CreateCertificateClient("example"))
                 .Returns(client.Object);
-            IRenewalOptionParser parser = new RenewalOptionParser(
+            IRenewalOptionLoader parser = new RenewalOptionLoader(
                 az.Object,
                 kvFactory.Object,
                 factory.Object,
@@ -217,7 +217,7 @@ namespace LetsEncrypt.Tests
             var client = new Mock<CertificateClient>();
             kvFactory.Setup(x => x.CreateCertificateClient("example"))
                 .Returns(client.Object);
-            IRenewalOptionParser parser = new RenewalOptionParser(
+            IRenewalOptionLoader parser = new RenewalOptionLoader(
                 az.Object,
                 kvFactory.Object,
                 factory.Object,

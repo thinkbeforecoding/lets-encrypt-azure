@@ -17,12 +17,12 @@ namespace LetsEncrypt.Logic
     {
         private readonly ILogger _logger;
         private readonly IAuthenticationService _authenticationService;
-        private readonly IRenewalOptionParser _renewalOptionParser;
+        private readonly IRenewalOptionLoader _renewalOptionParser;
         private readonly ICertificateBuilder _certificateBuilder;
 
         public RenewalService(
             IAuthenticationService authenticationService,
-            IRenewalOptionParser renewalOptionParser,
+            IRenewalOptionLoader renewalOptionParser,
             ICertificateBuilder certificateBuilder,
             ILogger<RenewalService> logger)
         {

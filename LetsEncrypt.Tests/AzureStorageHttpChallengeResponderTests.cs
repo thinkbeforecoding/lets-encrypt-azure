@@ -41,7 +41,7 @@ namespace LetsEncrypt.Tests
             var client = new Mock<CertificateClient>();
             kvFactory.Setup(x => x.CreateCertificateClient("example"))
                 .Returns(client.Object);
-            var parser = new RenewalOptionParser(
+            var parser = new RenewalOptionLoader(
                 new Mock<IAzureHelper>().Object,
                 kvFactory.Object,
                 factory.Object,

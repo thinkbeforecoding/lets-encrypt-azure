@@ -29,7 +29,7 @@ namespace LetsEncrypt.Tests
             var ctx = new Mock<IAcmeContext>();
             var orderContext = new Mock<IOrderContext>();
             var authContext = new AuthenticationContext(ctx.Object, config.Acme);
-            var parser = new Mock<IRenewalOptionParser>();
+            var parser = new Mock<IRenewalOptionLoader>();
             var log = new Mock<ILogger<RenewalService>>();
             IRenewalService service = new RenewalService(auth.Object, parser.Object, certBuilder.Object, log.Object);
             var certStore = new Mock<ICertificateStore>();
@@ -88,7 +88,7 @@ namespace LetsEncrypt.Tests
             var ctx = new Mock<IAcmeContext>();
             var orderContext = new Mock<IOrderContext>();
             var authContext = new AuthenticationContext(ctx.Object, config.Acme);
-            var parser = new Mock<IRenewalOptionParser>();
+            var parser = new Mock<IRenewalOptionLoader>();
             var log = new Mock<ILogger<RenewalService>>();
             IRenewalService service = new RenewalService(auth.Object, parser.Object, certBuilder.Object, log.Object);
             var certStore = new Mock<ICertificateStore>();
@@ -152,7 +152,7 @@ namespace LetsEncrypt.Tests
             var ctx = new Mock<IAcmeContext>();
             var orderContext = new Mock<IOrderContext>();
             var authContext = new AuthenticationContext(ctx.Object, config.Acme);
-            var parser = new Mock<IRenewalOptionParser>();
+            var parser = new Mock<IRenewalOptionLoader>();
             var log = new Mock<ILogger<RenewalService>>();
             IRenewalService service = new RenewalService(auth.Object, parser.Object, certBuilder.Object, log.Object);
             var certStore = new Mock<ICertificateStore>();
@@ -189,7 +189,7 @@ namespace LetsEncrypt.Tests
             var ctx = new Mock<IAcmeContext>();
             var orderContext = new Mock<IOrderContext>();
             var authContext = new AuthenticationContext(ctx.Object, config.Acme);
-            var parser = new Mock<IRenewalOptionParser>();
+            var parser = new Mock<IRenewalOptionLoader>();
             var log = new Mock<ILogger<RenewalService>>();
             IRenewalService service = new RenewalService(auth.Object, parser.Object, certBuilder.Object, log.Object);
             var certStore = new Mock<ICertificateStore>();
@@ -235,7 +235,7 @@ namespace LetsEncrypt.Tests
             var ctx = new Mock<IAcmeContext>();
             var orderContext = new Mock<IOrderContext>();
             var authContext = new AuthenticationContext(ctx.Object, config.Acme);
-            var parser = new Mock<IRenewalOptionParser>();
+            var parser = new Mock<IRenewalOptionLoader>();
             var log = new Mock<ILogger<RenewalService>>();
             IRenewalService service = new RenewalService(auth.Object, parser.Object, certBuilder.Object, log.Object);
             var certStore = new Mock<ICertificateStore>();
@@ -278,7 +278,7 @@ namespace LetsEncrypt.Tests
             var ctx = new Mock<IAcmeContext>();
             var orderContext = new Mock<IOrderContext>();
             var authContext = new AuthenticationContext(ctx.Object, config.Acme);
-            var parser = new Mock<IRenewalOptionParser>();
+            var parser = new Mock<IRenewalOptionLoader>();
             var log = new Mock<ILogger<RenewalService>>();
             IRenewalService service = new RenewalService(auth.Object, parser.Object, certBuilder.Object, log.Object);
             var certStore = new Mock<ICertificateStore>();
@@ -346,7 +346,7 @@ namespace LetsEncrypt.Tests
             var ctx = new Mock<IAcmeContext>();
             var orderContext = new Mock<IOrderContext>();
             var authContext = new AuthenticationContext(ctx.Object, config.Acme);
-            var parser = new Mock<IRenewalOptionParser>();
+            var parser = new Mock<IRenewalOptionLoader>();
             var log = new Mock<ILogger<RenewalService>>();
             IRenewalService service = new RenewalService(auth.Object, parser.Object, certBuilder.Object, log.Object);
             var certStore = new Mock<ICertificateStore>();
@@ -412,7 +412,7 @@ namespace LetsEncrypt.Tests
             var ctx = new Mock<IAcmeContext>();
             var orderContext = new Mock<IOrderContext>();
             var authContext = new AuthenticationContext(ctx.Object, config.Acme);
-            var parser = new Mock<IRenewalOptionParser>();
+            var parser = new Mock<IRenewalOptionLoader>();
             var log = new Mock<ILogger<RenewalService>>();
             IRenewalService service = new RenewalService(auth.Object, parser.Object, certBuilder.Object, log.Object);
             var certStore = new Mock<ICertificateStore>();
@@ -478,7 +478,7 @@ namespace LetsEncrypt.Tests
             var ctx = new Mock<IAcmeContext>();
             var orderContext = new Mock<IOrderContext>();
             var authContext = new AuthenticationContext(ctx.Object, config.Acme);
-            var parser = new Mock<IRenewalOptionParser>();
+            var parser = new Mock<IRenewalOptionLoader>();
             var log = new Mock<ILogger<RenewalService>>();
             IRenewalService service = new RenewalService(auth.Object, parser.Object, certBuilder.Object, log.Object);
             var certStore = new Mock<ICertificateStore>();
@@ -550,7 +550,7 @@ namespace LetsEncrypt.Tests
             var ctx = new Mock<IAcmeContext>();
             var orderContext = new Mock<IOrderContext>();
             var authContext = new AuthenticationContext(ctx.Object, config.Acme);
-            var parser = new Mock<IRenewalOptionParser>();
+            var parser = new Mock<IRenewalOptionLoader>();
             var log = new Mock<ILogger<RenewalService>>();
             IRenewalService service = new RenewalService(auth.Object, parser.Object, certBuilder.Object, log.Object);
             var certStore = new Mock<ICertificateStore>();
